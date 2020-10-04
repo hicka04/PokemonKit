@@ -10,11 +10,27 @@ import Foundation
 extension Pokemon.BaseInfo {
     /// 種族値
     public struct BaseStats: Status {
-        let hitPoints: UInt16
-        let attack: UInt16
-        let defense: UInt16
-        let specialAttack: UInt16
-        let specialDefense: UInt16
-        let speed: UInt16
+        public let hitPoints: UInt16
+        public let attack: UInt16
+        public let defense: UInt16
+        public let specialAttack: UInt16
+        public let specialDefense: UInt16
+        public let speed: UInt16
+        
+        public init(
+            hitPoints: UInt16,
+            attack: UInt16,
+            defense: UInt16,
+            specialAttack: UInt16,
+            specialDefense: UInt16,
+            speed: UInt16
+        ) {
+            self.hitPoints = hitPoints
+            self.attack = attack
+            self.defense = defense
+            self.specialAttack = specialAttack
+            self.specialDefense = specialDefense
+            self.speed = speed
+        }
     }
 }

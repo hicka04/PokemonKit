@@ -13,6 +13,18 @@ extension Pokemon {
         public let name: String
         public let types: (Type, Type?)
         public let baseStats: BaseStats
+        
+        public init(
+            number: UInt16,
+            name: String,
+            types: (Type, Type?),
+            baseStats: BaseStats
+        ) {
+            self.number = Number(rawValue: number)
+            self.name = name
+            self.types = types
+            self.baseStats = baseStats
+        }
     }
 }
 
