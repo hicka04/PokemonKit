@@ -11,11 +11,13 @@ public struct Pokemon {
     public let baseInfo: BaseInfo
     public private(set) var nickname: String?
     public private(set) var level: UInt8
+    public var individualValue: IndividualValue
     
     public init?(
         baseInfo: BaseInfo,
         nickname: String? = nil,
-        level: UInt8
+        level: UInt8,
+        individualValue: IndividualValue
     ) {
         guard level <= 100 else {
             return nil
@@ -24,6 +26,7 @@ public struct Pokemon {
         self.baseInfo = baseInfo
         self.nickname = nickname
         self.level = level
+        self.individualValue = individualValue
     }
     
     mutating public func update(nickname: String?) {
