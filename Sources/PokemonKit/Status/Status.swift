@@ -8,10 +8,12 @@
 import Foundation
 
 protocol Status {
-    var hitPoints: UInt16 { get }
-    var attack: UInt16 { get }
-    var defense: UInt16 { get }
-    var specialAttack: UInt16 { get }
-    var specialDefense: UInt16 { get }
-    var speed: UInt16 { get }
+    associatedtype UInteger: UnsignedInteger
+    
+    var hitPoints: UInteger { get }
+    var attack: UInteger { get }
+    var defense: UInteger { get }
+    var specialAttack: UInteger { get }
+    var specialDefense: UInteger { get }
+    var speed: UInteger { get }
 }
