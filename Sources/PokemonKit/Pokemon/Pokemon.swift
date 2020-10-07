@@ -10,19 +10,15 @@ import Foundation
 public struct Pokemon {
     public let baseInfo: BaseInfo
     public private(set) var nickname: String?
-    public private(set) var level: UInt8
+    public private(set) var level: Level
     public var individualValue: IndividualValue
     
     public init?(
         baseInfo: BaseInfo,
         nickname: String? = nil,
-        level: UInt8,
+        level: Level,
         individualValue: IndividualValue
-    ) {
-        guard level <= 100 else {
-            return nil
-        }
-        
+    ) { 
         self.baseInfo = baseInfo
         self.nickname = nickname
         self.level = level
@@ -33,11 +29,7 @@ public struct Pokemon {
         self.nickname = nickname
     }
     
-    mutating public func update(level: UInt8) throws {
-        guard level <= 100 else {
-            throw NSError(domain: "LevelOutOfBoundsError", code: -1, userInfo: nil)
-        }
-        
+    mutating public func update(level: Level) {
         self.level = level
     }
 }
