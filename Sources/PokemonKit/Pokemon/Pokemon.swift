@@ -11,13 +11,13 @@ public struct Pokemon {
     public let baseInfo: BaseInfo
     public private(set) var nickname: String?
     public private(set) var level: Level
-    public var individualValue: IndividualValue
+    public var individualValue: IndividualValues
     
     public init?(
         baseInfo: BaseInfo,
         nickname: String? = nil,
         level: Level,
-        individualValue: IndividualValue
+        individualValue: IndividualValues
     ) { 
         self.baseInfo = baseInfo
         self.nickname = nickname
