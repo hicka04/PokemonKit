@@ -8,18 +8,15 @@
 import Foundation
 
 extension Pokemon {
-    public struct Level: ExpressibleByIntegerLiteral {
-        public let value: UInt8
+    public struct Level: RawRepresentable {
+        public var rawValue: UInt8
         
-        public init(integerLiteral value: UInt8) {
-            guard value <= 100 else {
-                fatalError("LevelOutOfBoundsError")
+        public init?(rawValue: UInt8) {
+            guard rawValue <= 100 else {
+                return nil
             }
             
-            self.value = value
+            self.rawValue = rawValue
         }
     }
 }
-
-let level: Pokemon.Level = 100
-
