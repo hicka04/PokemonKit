@@ -11,6 +11,7 @@ public struct Pokemon {
     public let baseInfo: BaseInfo
     public var nickname: String?
     public var level: Level
+    public var nature: Nature
     public var individualValues: IndividualValues
     public var effortValues: EffortValues
     
@@ -18,12 +19,14 @@ public struct Pokemon {
         baseInfo: BaseInfo,
         nickname: String? = nil,
         level: Level,
+        nature: Nature,
         individualValues: IndividualValues,
         effortValues: EffortValues
     ) { 
         self.baseInfo = baseInfo
         self.nickname = nickname
         self.level = level
+        self.nature = nature
         self.individualValues = individualValues
         self.effortValues = effortValues
     }
