@@ -53,11 +53,14 @@ extension Pokemon {
 
 extension Pokemon.EffortValues {
     public struct EffortValue: Status {
-        static let max: UInt64 = .init(UInt8.max)
+        static var max: Int = 255
+        public var rawValue: Int
         
-        public var rawValue: UInt8
-        
-        public init(rawValue: UInt8) {
+        public init?(rawValue: Int) {
+            guard (0...Self.max).contains(rawValue) else {
+                return nil
+            }
+            
             self.rawValue = rawValue
         }
     }

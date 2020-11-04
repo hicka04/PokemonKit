@@ -14,6 +14,15 @@ public struct Pokemon {
     public var nature: Nature
     public var individualValues: IndividualValues
     public var effortValues: EffortValues
+    public var actualValues: ActualValues {
+        .init(
+            baseStats: baseInfo.baseStats,
+            individualValues: individualValues,
+            effortValues: effortValues,
+            level: level,
+            nature: nature
+        )
+    }
     
     public init(
         baseInfo: BaseInfo,

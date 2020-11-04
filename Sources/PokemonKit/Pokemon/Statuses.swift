@@ -18,6 +18,6 @@ protocol Statuses {
     var speed: Value { get }
 }
 
-protocol Status: RawRepresentable where RawValue: UnsignedInteger {
-    static var max: UInt64 { get }
+protocol Status: RawRepresentable where RawValue == Int {
+    static var max: Int { get }
 }

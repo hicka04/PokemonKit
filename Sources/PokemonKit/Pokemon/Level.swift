@@ -9,10 +9,10 @@ import Foundation
 
 extension Pokemon {
     public struct Level: RawRepresentable {
-        public var rawValue: UInt8
+        public var rawValue: Int
         
-        public init?(rawValue: UInt8) {
-            guard rawValue <= 100 else {
+        public init?(rawValue: Int) {
+            guard (0...100).contains(rawValue) else {
                 return nil
             }
             

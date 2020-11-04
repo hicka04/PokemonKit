@@ -37,11 +37,15 @@ extension Pokemon.BaseInfo {
 
 extension Pokemon.BaseInfo.BaseStats {
     public struct BaseStat: Status {
-        static var max: UInt64 = .init(UInt8.max)
+        static var max: Int = 255
         
-        public var rawValue: UInt8
+        public var rawValue: Int
         
-        public init(rawValue: UInt8) {
+        public init?(rawValue: Int) {
+            guard (0...Self.max).contains(rawValue) else {
+                return nil
+            }
+            
             self.rawValue = rawValue
         }
     }

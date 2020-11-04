@@ -70,61 +70,84 @@ extension Pokemon {
 }
 
 extension Pokemon.Nature {
-    public enum CorrectionStatus {
-        case attack
-        case defense
-        case specialAttack
-        case specialDefense
-        case speed
+    public struct Correction {
+        public enum Status {
+            case attack
+            case defense
+            case specialAttack
+            case specialDefense
+            case speed
+        }
+        
+        public enum Direction {
+            case upward
+            case downward
+        }
+        
+        public let upward: Status
+        public let downward: Status
+        
+        public init(upward: Status, downward: Status) {
+            self.upward = upward
+            self.downward = downward
+        }
+        
+        public func direction(with status: Status) -> Direction? {
+            switch status {
+            case self.upward:   return .upward
+            case self.downward: return .downward
+            default:            return nil
+            }
+        }
     }
     
-    public var correction: (up: CorrectionStatus, down: CorrectionStatus)? {
+    public var correction: Correction? {
         switch self {
         // 攻撃上昇補正
         case .lonely:
-            return (.attack, .defense)
+            return .init(upward: .attack, downward: .defense)
         case .adamant:
-            return (.attack, .specialAttack)
+            return .init(upward: .attack, downward: .specialAttack)
         case .naughty:
-            return (.attack, .specialDefense)
+            return .init(upward: .attack, downward: .specialDefense)
         case .brave:
-            return (.attack, .speed)
+            return .init(upward: .attack, downward: .speed)
         // 防御上昇補正
         case .bold:
-            return (.defense, .attack)
+            return .init(upward: .defense, downward: .attack)
         case .impish:
-            return (.defense, .specialAttack)
+            return .init(upward: .defense, downward: .specialAttack)
         case .lax:
-            return (.defense, .specialDefense)
+            return .init(upward: .defense, downward: .specialDefense)
         case .relaxed:
-            return (.defense, .speed)
+            return .init(upward: .defense, downward: .speed)
         // 特攻上昇補正
         case .modest:
-            return (.specialAttack, .attack)
+            return .init(upward: .specialAttack, downward: .attack)
         case .mild:
-            return (.specialAttack, .defense)
+            return .init(upward: .specialAttack, downward: .defense)
         case .rash:
-            return (.specialAttack, .specialDefense)
+            return .init(upward: .specialAttack, downward: .specialDefense)
         case .quiet:
-            return (.specialAttack, .speed)
+            return .init(upward: .specialAttack, downward: .speed)
         // 特防上昇補正
         case .clam:
-            return (.specialDefense, .attack)
+            return .init(upward: .specialDefense, downward: .attack)
         case .gentle:
-            return (.specialDefense, .defense)
+            return .init(upward: .specialDefense, downward: .defense)
         case .careful:
-            return (.specialDefense, .specialAttack)
+            return .init(upward: .specialDefense, downward: .specialAttack)
         case .sassy:
-            return (.specialDefense, .speed)
+            return .init(upward: .specialDefense, downward: .speed)
         // 素早さ上昇補正
         case .timid:
-            return (.speed, .attack)
+            return .init(upward: .speed, downward: .attack)
         case .hasty:
-            return (.speed, .defense)
+            return .init(upward: .speed, downward: .defense)
         case .jolly:
-            return (.speed, .specialAttack)
+            return .init(upward: .speed, downward: .specialAttack)
         case .naive:
-            return (.speed, .specialDefense)
+            return .init(upward: .speed, downward: .specialDefense)
         // 無補正
         case .hardy, .docile, .serious, .bashful, .quirky:
             return nil

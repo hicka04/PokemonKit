@@ -37,12 +37,12 @@ extension Pokemon {
 
 extension Pokemon.IndividualValues {
     public struct IndividualValue: Status {
-        static var max: UInt64 = 31
+        static var max: Int = 31
         
-        public var rawValue: UInt8
+        public var rawValue: Int
         
-        public init?(rawValue: UInt8) {
-            guard rawValue <= Self.max else {
+        public init?(rawValue: Int) {
+            guard (0...Self.max).contains(rawValue) else {
                 return nil
             }
             
