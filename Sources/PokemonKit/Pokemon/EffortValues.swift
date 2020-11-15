@@ -30,12 +30,12 @@ extension Pokemon {
         public let speed: EffortValue
         
         public init?(
-            hitPoints: EffortValue,
-            attack: EffortValue,
-            defense: EffortValue,
-            specialAttack: EffortValue,
-            specialDefense: EffortValue,
-            speed: EffortValue
+            hitPoints: EffortValue = EffortValue()!,
+            attack: EffortValue = EffortValue()!,
+            defense: EffortValue = EffortValue()!,
+            specialAttack: EffortValue = EffortValue()!,
+            specialDefense: EffortValue = EffortValue()!,
+            speed: EffortValue = EffortValue()!
         ) {
             self.hitPoints = hitPoints
             self.attack = attack
@@ -56,7 +56,7 @@ extension Pokemon.EffortValues {
         static var max: Int = 255
         public var rawValue: Int
         
-        public init?(rawValue: Int) {
+        public init?(rawValue: Int = 0) {
             guard (0...Self.max).contains(rawValue) else {
                 return nil
             }
