@@ -12,7 +12,7 @@ extension Pokemon {
         public var rawValue: Int
         
         public init?(rawValue: Int) {
-            guard (0...100).contains(rawValue) else {
+            guard (1...100).contains(rawValue) else {
                 return nil
             }
             
